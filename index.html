@@ -2,43 +2,174 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>私のサイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私のポートフォリオ</title>
   <style>
+    /* 全体のデザイン（背景や文字色） */
     body {
-      font-family: sans-serif;
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 0 20px;
-      line-height: 1.8;
-      background: #f7f7f7;
+      font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+      background: linear-gradient(135deg, #f4f7f6 0%, #e0eaf5 100%);
       color: #333;
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.8;
+      min-height: 100vh;
     }
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* プロフィール部分のデザイン */
+    .profile-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      background-color: #ddd;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     h1 {
-      color: #222;
+      margin: 0;
+      font-size: 2rem;
+      color: #2c3e50;
     }
-    a {
-      color: #007acc;
+    .subtitle {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+      margin-top: 5px;
+    }
+
+    /* 各セクション（白いカード）のデザイン */
+    .section-card {
+      background: #ffffff;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      margin-bottom: 30px;
+      transition: transform 0.3s ease;
+    }
+    .section-card:hover {
+      transform: translateY(-5px);
+    }
+    h2 {
+      color: #4A90E2;
+      border-bottom: 2px solid #e1e8ed;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+
+    /* リンクとボタンのデザイン */
+    a.text-link {
+      color: #4A90E2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a.text-link:hover {
+      text-decoration: underline;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .social-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 50px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+    .btn-x { background: #000000; }
+    .btn-note { background: #41C9B4; }
+    .btn-github { background: #333333; }
+    
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 15px;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      color: #7f8c8d;
+      font-size: 0.9rem;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>こんにちは</h1>
-    <p>これは私のWebサイトです。</p>
+  <div class="container">
+    
+    <!-- ヘッダー（画像・名前） -->
+    <div class="profile-header">
+      <img src="https://via.placeholder.com/150" alt="プロフィール画像" class="profile-img">
+      <h1>あなたの名前</h1>
+      <p class="subtitle">趣味や簡単な肩書き（例: 映画好きのWebデザイナー）</p>
+    </div>
 
-    <h2>プロフィール</h2>
-    <p>ここに自己紹介を書きます。</p>
+    <!-- 自己紹介セクション -->
+    <div class="section-card">
+      <h2>自己紹介</h2>
+      <p>
+        こんにちは！私のサイトへようこそ。<br>
+        ここは私の個人的なホームページです。日々の気づきや好きなことについて発信しています。<br>
+        休日はカフェ巡りや映画鑑賞をして過ごすことが多いです。（※ここを自由に書き換えてください）
+      </p>
+    </div>
 
-    <h2>リンク</h2>
-    <p>
-      <a href="https://example.com">SNSやブログはこちら</a>
-    </p>
+    <!-- 好きなもの ＆ おすすめサイトセクション -->
+    <div class="section-card">
+      <h2>好きなもの ＆ おすすめサイト</h2>
+      <p>私が普段よく見ているサイトや、お気に入りのコンテンツです。</p>
+      <ul>
+        <li>
+          <strong>映画:</strong> 最近はSF映画にハマっています。<br>
+          <a href="https://おすすめサイトのURL" target="_blank" rel="noopener noreferrer" class="text-link">おすすめの映画レビューサイトはこちら</a>
+        </li>
+        <li>
+          <strong>読書:</strong> ミステリー小説をよく読みます。<br>
+          <a href="https://おすすめサイトのURL" target="_blank" rel="noopener noreferrer" class="text-link">お気に入りの書評ブログ</a>
+        </li>
+        <li>
+          <strong>ガジェット:</strong> 便利なツールを探すのが好きです。
+        </li>
+      </ul>
+    </div>
+
+    <!-- SNS・リンク セクション -->
+    <div class="section-card">
+      <h2>アカウント ＆ リンク</h2>
+      <p>以下のSNSやブログでも発信しています。ぜひ覗いてみてください！</p>
+      <div class="social-links">
+        <a href="https://twitter.com/あなたのID" target="_blank" rel="noopener noreferrer" class="social-btn btn-x">X (Twitter)</a>
+        <a href="https://note.com/あなたのID" target="_blank" rel="noopener noreferrer" class="social-btn btn-note">note</a>
+        <a href="https://github.com/あなたのID" target="_blank" rel="noopener noreferrer" class="social-btn btn-github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+      <p>&copy; 2026 あなたの名前. All Rights Reserved.</p>
+    </footer>
+
   </div>
 </body>
 </html>
