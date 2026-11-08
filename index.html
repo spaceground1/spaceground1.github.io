@@ -24,14 +24,17 @@
     .profile-header {
       text-align: center;
       margin-bottom: 40px;
-      /* ▼ 修正点: 背景画像を透過させたボックスを追加して文字を見やすくしました ▼ */
-      background: rgba(255, 255, 255, 0.85);
-      padding: 30px 20px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-      backdrop-filter: blur(5px);
-      /* ▲ ここまで ▲ */
     }
+    /* ▼ 新しく追加：文字の大きさギリギリの背景枠 ▼ */
+    .profile-text-box {
+      display: inline-block; /* 横幅を文字の幅にぴったり合わせる設定 */
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(5px);
+      padding: 10px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    /* ▲ ここまで ▲ */
     .profile-img {
       width: 120px;
       height: 120px;
@@ -51,6 +54,7 @@
       color: #7f8c8d;
       font-size: 1.1rem;
       margin-top: 5px;
+      margin-bottom: 0; /* 枠内の下の余白を整えるために 0 を追加 */
     }
 
     /* 各セクション（白いカード）のデザイン */
@@ -207,8 +211,12 @@
     <!-- ヘッダー -->
     <div class="profile-header">
       <img src="https://assets.st-note.com/production/uploads/images/47482397/profile_5df02bc959f532456113f19863d1f1c7.jpg?fit=bounds&format=jpeg&quality=85&width=330" alt="プロフィール画像" class="profile-img">
-      <h1>SpaceGround</h1>
-      <p class="subtitle">レ○バーエンジニア</p>
+      <!-- ▼ 文字部分だけを新しいボックスで囲む ▼ -->
+      <div class="profile-text-box">
+        <h1>SpaceGround</h1>
+        <p class="subtitle">レ○バーエンジニア</p>
+      </div>
+      <!-- ▲ ここまで ▲ -->
     </div>
 
     <!-- 自己紹介セクション -->
