@@ -24,7 +24,9 @@
 
     /* プロフィール部分のデザイン */
     .profile-header {
-      text-align: center;
+      display: flex;
+      align-items: center; /* 画像とボックスの縦の中央を揃える */
+      gap: 25px; /* 画像とボックスの間の余白 */
       margin-bottom: 40px;
     }
     .profile-text-box {
@@ -40,7 +42,7 @@
       height: 120px;
       background-color: #ddd;
       border-radius: 50%;
-      margin: 0 auto 20px;
+      margin: 0; /* ←ここを変更（0 auto 20px を 0 に） */
       object-fit: cover;
       border: 4px solid white;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
