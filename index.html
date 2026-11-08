@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>私のポートフォリオ</title>
   <style>
-    /* 全体のデザイン（背景や文字色） */
+    /* 全体のデザイン */
     body {
       font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
       background: linear-gradient(135deg, #f4f7f6 0%, #e0eaf5 100%);
@@ -53,10 +53,6 @@
       border-radius: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.05);
       margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
-    .section-card:hover {
-      transform: translateY(-5px);
     }
     h2 {
       color: #4A90E2;
@@ -65,16 +61,68 @@
       margin-top: 0;
     }
 
-    /* リンクとボタンのデザイン */
-    a.text-link {
-      color: #4A90E2;
-      text-decoration: none;
-      font-weight: bold;
+    /* --- 今回改造したリンクカードのデザイン --- */
+    .category-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
     }
-    a.text-link:hover {
-      text-decoration: underline;
+    .category-item {
+      margin-bottom: 35px;
+    }
+    .category-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+    .category-desc {
+      margin-bottom: 15px;
+      color: #555;
     }
     
+    .link-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      padding: 16px;
+      background: #f8fbfc;
+      border: 1px solid #e1e8ed;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .link-card:hover {
+      background: #ffffff;
+      border-color: #4A90E2;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+      transform: translateX(5px); /* ホバー時に少し右に動くモダンな演出 */
+    }
+    .link-text {
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .link-url {
+      color: #7f8c8d;
+      font-size: 0.85rem;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .link-url::before {
+      content: '🔗'; /* URLの前にアイコンを表示 */
+      font-size: 0.8rem;
+    }
+    /* ------------------------------------- */
+
+    /* SNSとフッター */
     .social-links {
       display: flex;
       gap: 15px;
@@ -99,14 +147,6 @@
     .btn-note { background: #41C9B4; }
     .btn-github { background: #333333; }
     
-    ul {
-      padding-left: 20px;
-    }
-    li {
-      margin-bottom: 15px;
-    }
-
-    /* フッター */
     footer {
       text-align: center;
       color: #7f8c8d;
@@ -118,7 +158,7 @@
 <body>
   <div class="container">
     
-    <!-- ヘッダー（画像・名前） -->
+    <!-- ヘッダー -->
     <div class="profile-header">
       <img src="https://assets.st-note.com/production/uploads/images/47482397/profile_5df02bc959f532456113f19863d1f1c7.jpg?fit=bounds&format=jpeg&quality=85&width=330" alt="プロフィール画像" class="profile-img">
       <h1>SpaceGround</h1>
@@ -130,8 +170,10 @@
       <h2>自己紹介</h2>
       <p>
         GitHubすら使ったことなかったけど、AIで試しに作成しました。<br>
-        何に使うかは決めてないけど、気になるリンクとか貼ったりしてみます。<br>
-        変なものにハマる傾向があります。過去にハマってきたもの。
+        何に使うかは決めてないけど、気になるリンクとか貼ったりしてみます。
+      </p>
+      <p>
+        <strong>変なものにハマる傾向があります。過去にハマってきたもの：</strong><br>
         宇宙開発競争、ラグビー観戦、三代目三遊亭金馬の落語、洗脳・瞑想（変成意識）、北朝鮮
       </p>
     </div>
@@ -140,23 +182,62 @@
     <div class="section-card">
       <h2>好きなもの ＆ おすすめサイト</h2>
       <p>私が普段よく見ているサイトや、お気に入りのコンテンツです。</p>
-      <ul>
-        <li>
-          <strong>北朝鮮:</strong> 最近は北朝鮮情報にハマっています。<br>
-          <a href="https://www.intchoson.com/" target="_blank" rel="noopener noreferrer" class="text-link">北朝鮮に関する情報を有志がまとめているサイトです。安全です。朝鮮語辞典が有能だと感じます。</a>
-          <a href="https://youtube.com/@-meari-?si=D08gueKXDZHLbYSH" target="_blank" rel="noopener noreferrer" class="text-link">朝鮮中央TVの高画質動画をあげているYoutubeチャンネルです。安全です。</a>
-          <a href="http://www.naenara.com.kp/main/index/ja/first" target="_blank" rel="noopener noreferrer" class="text-link">日本語版のnaenara（北朝鮮のサイト）リンクです。アクセスは自己責任です。</a>
+      
+      <ul class="category-list">
+        <!-- カテゴリ1: 北朝鮮 -->
+        <li class="category-item">
+          <div class="category-title">北朝鮮</div>
+          <div class="category-desc">最近は北朝鮮情報にハマっています。</div>
+          <div class="link-group">
+            <a href="https://www.intchoson.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">北朝鮮に関する情報を有志がまとめているサイトです。安全です。朝鮮語辞典が有能だと感じます。</span>
+              <span class="link-url">https://www.intchoson.com/</span>
+            </a>
+            <a href="https://youtube.com/@-meari-?si=D08gueKXDZHLbYSH" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">朝鮮中央TVの高画質動画をあげているYoutubeチャンネルです。安全です。</span>
+              <span class="link-url">https://youtube.com/@-meari-</span>
+            </a>
+            <a href="http://www.naenara.com.kp/main/index/ja/first" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">日本語版のnaenara（北朝鮮のサイト）リンクです。アクセスは自己責任です。</span>
+              <span class="link-url">http://www.naenara.com.kp/</span>
+            </a>
+          </div>
         </li>
-        <li>
-          <strong>情報収集:</strong> 尊敬する方々の情報発信などから学んでいます。<br>
-          <a href="https://tomabechi.jp/" target="_blank" rel="noopener noreferrer" class="text-link">認知科学者の苫米地英人さんのブログサイトです。</a>
-          <a href=" https://masarusato.theletter.jp/" target="_blank" rel="noopener noreferrer" class="text-link">元外交官の佐藤優さんのメルマガサイトです。</a>
-          <a href="https://miyadai.com/" target="_blank" rel="noopener noreferrer" class="text-link">社会学者の宮台真司さんのサイトです。</a>
+        
+        <!-- カテゴリ2: 情報収集 -->
+        <li class="category-item">
+          <div class="category-title">情報収集</div>
+          <div class="category-desc">尊敬する方々の情報発信などから学んでいます。</div>
+          <div class="link-group">
+            <a href="https://tomabechi.jp/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">認知科学者の苫米地英人さんのブログサイトです。</span>
+              <span class="link-url">https://tomabechi.jp/</span>
+            </a>
+            <a href="https://masarusato.theletter.jp/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">元外交官の佐藤優さんのメルマガサイトです。</span>
+              <span class="link-url">https://masarusato.theletter.jp/</span>
+            </a>
+            <a href="https://miyadai.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">社会学者の宮台真司さんのサイトです。</span>
+              <span class="link-url">https://miyadai.com/</span>
+            </a>
+          </div>
         </li>
-        <li>
-          <strong>スポーツ観戦:</strong> 駅伝とラグビーが特に好きです。
-          <a href="https://web.spo.live/team/Waseda_Kyoso_LD/home" target="_blank" rel="noopener noreferrer" class="text-link">駅伝は早稲田大学を応援しています。SpoLiveのリンクです。</a>
-          <a href="https://www.suntory.co.jp/culture-sports/sungoliath/" target="_blank" rel="noopener noreferrer" class="text-link">ラグビーは東京サントリーサンゴリアスを応援しています。</a>
+
+        <!-- カテゴリ3: スポーツ観戦 -->
+        <li class="category-item">
+          <div class="category-title">スポーツ観戦</div>
+          <div class="category-desc">駅伝とラグビーが特に好きです。</div>
+          <div class="link-group">
+            <a href="https://web.spo.live/team/Waseda_Kyoso_LD/home" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">駅伝は早稲田大学を応援しています。SpoLiveのリンクです。</span>
+              <span class="link-url">https://web.spo.live/</span>
+            </a>
+            <a href="https://www.suntory.co.jp/culture-sports/sungoliath/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">ラグビーは東京サントリーサンゴリアスを応援しています。</span>
+              <span class="link-url">https://www.suntory.co.jp/culture-sports/sungoliath/</span>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
