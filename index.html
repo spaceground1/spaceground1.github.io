@@ -103,4 +103,218 @@
       flex-direction: column;
       padding: 16px;
       background: rgba(248, 251, 252, 0.7);
-      border: 1px solid rgba(225,
+      border: 1px solid rgba(225, 232, 237, 0.5);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .link-card:hover {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #4A90E2;
+      box-shadow: 0 4px 15px rgba(74, 144, 226, 0.1);
+      transform: translateX(5px); 
+    }
+    .link-text {
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .link-url {
+      color: #7f8c8d;
+      font-size: 0.85rem;
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .link-url::before {
+      content: '🔗'; 
+      font-size: 0.8rem;
+    }
+
+    /* SNSとフッター */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+    .social-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      border-radius: 50px;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    .social-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+    .btn-x { background: #000000; }
+    .btn-note { background: #41C9B4; }
+    .btn-github { background: #333333; }
+    
+    footer {
+      text-align: center;
+      color: #333;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(255,255,255,0.9), -1px -1px 3px rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    /* スライドショー用のデザインとアニメーション */
+    .bg-slider {
+      position: fixed; 
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1; 
+      opacity: 0;  
+      animation: fade 15s infinite; 
+    }
+    
+    .bg1 { background-image: url('jongunjue.jpg'); animation-delay: 0s; }
+    .bg2 { background-image: url('kudo.jpg'); animation-delay: 5s; }
+    .bg3 { background-image: url('rugbyjapan.jpg'); animation-delay: 10s; }
+
+    @keyframes fade {
+      0%   { opacity: 0; }
+      10%  { opacity: 1; }
+      33%  { opacity: 1; }
+      43%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- スライドショー用の箱 -->
+  <div class="bg-slider bg1"></div>
+  <div class="bg-slider bg2"></div>
+  <div class="bg-slider bg3"></div>
+  
+  <div class="container">
+    
+    <!-- ヘッダー -->
+    <div class="profile-header">
+      <img src="https://assets.st-note.com/production/uploads/images/47482397/profile_5df02bc959f532456113f19863d1f1c7.jpg?fit=bounds&format=jpeg&quality=85&width=330" alt="プロフィール画像" class="profile-img">
+      <div class="profile-text-box">
+        <h1>SpaceGround</h1>
+        <p class="subtitle">レ○バーエンジニア</p>
+      </div>
+    </div>
+
+    <!-- 自己紹介セクション -->
+    <div class="section-card">
+      <h2>自己紹介</h2>
+      <p>
+        25歳大学院卒社会人1年目男です。<br>
+        文系脳だけどなぜか理系修士卒で就職してしまった。<br>
+        GitHubすら使ったことなかったけど、AIで試しに作成しました。<br>
+        特に何に使うとか決めてないけど、好きなもののリンクとか貼っています。
+      </p>
+      <p>
+        <strong>いろいろハマる傾向があります。今までハマってきたもの：</strong><br>
+        宇宙開発競争、ラグビー観戦、三代目三遊亭金馬の落語、洗脳・瞑想（変成意識）、北朝鮮
+      </p>
+      
+      <div style="margin-top: 25px; padding-top: 15px; border-top: 1px dashed #e1e8ed;">
+        <p style="margin-bottom: 10px; font-weight: bold; color: #2c3e50;">
+          💬 質問などがありましたら、こちらから！気まぐれで回答します。
+        </p>
+        <a href="https://note.com/qa/spaceground" target="_blank" rel="noopener noreferrer" class="link-card">
+          <span class="link-text">SpaceGroundへの質問箱（note）</span>
+          <span class="link-url">https://note.com/spaceground/qa/spaceground</span>
+        </a>
+      </div> 
+      
+    </div>
+
+    <!-- 好きなもの ＆ おすすめサイトセクション -->
+    <div class="section-card">
+      <h2>好きなもの ＆ おすすめサイト</h2>
+      <p>私が普段よく見ているサイトや、お気に入りのコンテンツです。</p>
+      
+      <ul class="category-list">
+        <!-- カテゴリ1: 北朝鮮 -->
+        <li class="category-item">
+          <div class="category-title">北朝鮮</div>
+          <div class="category-desc">最近は北朝鮮情報にハマっています。</div>
+          <div class="link-group">
+            <a href="https://www.intchoson.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">北朝鮮に関する情報を有志がまとめているサイトです。安全です。朝鮮語辞典が有能だと感じます。</span>
+              <span class="link-url">https://www.intchoson.com/</span>
+            </a>
+            <a href="https://youtube.com/@-meari-" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">朝鮮中央TVの高画質動画をあげているYoutubeチャンネルです。安全です。</span>
+              <span class="link-url">https://youtube.com/@-meari-</span>
+            </a>
+            <a href="http://www.naenara.com.kp/main/index/ja/first" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">日本語版のnaenara（北朝鮮のサイト）リンクです。アクセスは自己責任です。</span>
+              <span class="link-url">http://www.naenara.com.kp/main/index/ja/first</span>
+            </a>
+          </div>
+        </li>
+        
+        <!-- カテゴリ2: 情報収集 -->
+        <li class="category-item">
+          <div class="category-title">情報収集</div>
+          <div class="category-desc">尊敬する方々の情報発信などから学んでいます。</div>
+          <div class="link-group">
+            <a href="https://tomabechi.jp/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">認知科学者の苫米地英人さんのブログサイトです。</span>
+              <span class="link-url">https://tomabechi.jp/</span>
+            </a>
+            <a href="https://masarusato.theletter.jp/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">元外交官の佐藤優さんのメルマガサイトです。</span>
+              <span class="link-url">https://masarusato.theletter.jp/</span>
+            </a>
+            <a href="https://miyadai.com/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">社会学者の宮台真司さんのサイトです。</span>
+              <span class="link-url">https://miyadai.com/</span>
+            </a>
+          </div>
+        </li>
+
+        <!-- カテゴリ3: スポーツ観戦 -->
+        <li class="category-item">
+          <div class="category-title">スポーツ観戦</div>
+          <div class="category-desc">駅伝とラグビーが特に好きです。</div>
+          <div class="link-group">
+            <a href="https://web.spo.live/team/Waseda_Kyoso_LD/home" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">駅伝は早稲田大学を応援しています。SpoLiveのリンクです。</span>
+              <span class="link-url">https://web.spo.live/team/Waseda_Kyoso_LD/home/</span>
+            </a>
+            <a href="https://www.suntory.co.jp/culture-sports/sungoliath/" target="_blank" rel="noopener noreferrer" class="link-card">
+              <span class="link-text">ラグビーは東京サントリーサンゴリアスを応援しています。</span>
+              <span class="link-url">https://www.suntory.co.jp/culture-sports/sungoliath/</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- SNS・リンク セクション -->
+    <div class="section-card">
+      <h2>アカウント ＆ リンク</h2>
+      <p>以下のSNSやブログでも発信しています。ぜひ覗いてみてください！</p>
+      <div class="social-links">
+        <a href="https://x.com/spaceground1?s=11&t=u7TNW42MMpo2gprekL1yNw" target="_blank" rel="noopener noreferrer" class="social-btn btn-x">X (Twitter)</a>
+        <a href="https://note.com/spaceground" target="_blank" rel="noopener noreferrer" class="social-btn btn-note">note</a>
+        <a href="https://github.com/spaceground1" target="_blank" rel="noopener noreferrer" class="social-btn btn-github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- フッター -->
+    <footer>
+      <p>&copy; 2026 SpaceGround. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
