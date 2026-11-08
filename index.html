@@ -153,6 +153,32 @@
       font-size: 0.9rem;
       margin-top: 40px;
     }
+    /* ▼ スライドショー用のデザインとアニメーション ▼ */
+    .bg-slider {
+      position: fixed; /* 画面に固定 */
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: -1; /* 白いカード（コンテンツ）より奥に配置 */
+      opacity: 0;  /* 最初は透明にしておく */
+      animation: fade 15s infinite; /* 15秒かけてアニメーションを無限ループ */
+    }
+    
+    /* 各画像の設定と、表示タイミングをずらす設定 */
+    .bg1 { background-image: url('uchu1.jpg'); animation-delay: 0s; }
+    .bg2 { background-image: url('uchu2.jpg'); animation-delay: 5s; }
+    .bg3 { background-image: url('uchu3.jpg'); animation-delay: 10s; }
+
+    /* ふんわり浮き出て、ふんわり消える設定 */
+    @keyframes fade {
+      0%   { opacity: 0; }
+      10%  { opacity: 1; }
+      33%  { opacity: 1; }
+      43%  { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    /* ▲ ここまで ▲ */
+    
   </style>
 </head>
 <body>
